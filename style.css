@@ -1,0 +1,106 @@
+body{ 
+	background-color:#202020;  
+    color: white;
+    font-family: Montserrat;
+}
+.registrace, .login, .profil {
+	background-color:#a20c16;
+	margin: 5px;
+	color: white;
+	padding: 5px 8px;
+	border-radius: 5%;
+}
+.menu {
+	background-color: white;
+}
+.registrace:hover, .login:hover, .profil:hover {
+	background-color: #d9534f;
+}
+.search {
+	margin-top: 10px;
+}
+.obsah {
+	color: black;
+	text-align: center;
+}
+footer {
+	text-align : center;
+	margin: 2px;
+}
+footer img {
+	width:30px;
+	height:30px;
+	border-radius: 50%;
+}
+.logo {
+	margin-top: 5px;
+}
+.btn.btn-primary.dropdown-toggle {
+	background-color:#a20c16;
+	border: none;
+}
+.btn.btn-primary.dropdown-toggle:hover,  .btn.btn-primary.dropdown-toggle:active, .btn.btn-primary.dropdown-toggle:focus {
+	background-color: #d9534f;
+}
+#section1, #section2, #section3, #section4, #section5, #section6, #section7, #section8, #section9 {
+  	color: black; 
+  	background-color: #EEE;
+  	min-height:500px;
+  	margin-bottom: 5px;
+}
+.affix {
+      top:0;
+      width: 100%;
+      z-index: 9999 !important;
+}
+.navbar {
+      margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+     position: relative;
+     top: 50px;
+}
+.nadpis {
+	text-align: center;
+	color: #a20c16;
+}
+.carousel-inner {
+	height: 300px;
+	width: 300px;
+}
+.carousel-inner img {
+	margin: auto;
+}
+.vyber .btn-group {
+	margin-left: 43%;
+}
+.vyber button {
+	color: white;
+	background-color: #a20c16;
+	margin: 0px 2px;
+}
+.reseni {
+	width: 80px;
+}
+.jumbotron {
+	min-height: 550px;
+}
+.pov {
+	font-size: 75%;
+}
+.obrazek {
+	width: 100%;
+}
+.like {
+	text-align: center;
+	color: black;
+}
+.cudlik {
+	max-height: 100px;
+}
+.procvicovani {
+	text-align: center;
+	margin: auto;
+	color: white;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vue</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+  			{{ message }}
+  			<br>
+			<button v-on:click="foo = 'baz'">Change it</button>
+			{{foo}}
+		</div>
+		<script>
+			var data = {
+			    message: 'Hello Vue!',
+			    foo: 'bar'
+			  }
+			var vm = new Vue({
+			  el: '#app',
+			  data: data
+			})
+			vm.b = 'hi'
+		</script>
+		<div id="todo-list-example">
+		  <form v-on:submit.prevent="addNewTodo">
+		    <label for="new-todo">Přidat úkol</label>
+		    <input
+		      v-model="newTodoText"
+		      id="new-todo"
+		      placeholder="Př. Nakrmit kočku"
+		    >
+		    <button>Přidat</button>
+		  </form>
+		  <ul>
+		    <li
+		      is="todo-item"
+		      v-for="(todo, index) in todos"
+		      v-bind:key="todo.id"
+		      v-bind:title="todo.title"
+		      v-on:remove="todos.splice(index, 1)"
+		    ></li>
+		  </ul>
+		</div>
+		<script>
+			Vue.component('todo-item', {
+			  template: '\
+			    <li>\
+			      {{ title }}\
+			      <button v-on:click="$emit(\'remove\')">X</button>\
+			    </li>\
+			  ',
+			  props: ['title']
+			})
+
+			new Vue({
+			  el: '#todo-list-example',
+			  data: {
+			    newTodoText: '',
+			    todos: [
+			      {
+			        id: 1,
+			        title: 'Dodělat html',
+			      },
+			      {
+			        id: 2,
+			        title: 'Dodělat CSS',
+			      },
+			      {
+			        id: 3,
+			        title: 'Spravit to všechno'
+			      }
+			    ],
+			    nextTodoId: 4
+			  },
+			  methods: {
+			    addNewTodo: function () {
+			      this.todos.push({
+			        id: this.nextTodoId++,
+			        title: this.newTodoText			        
+			      })
+			      this.newTodoText = ''
+			    }
+			  }
+			})
+		</script>
+		<div id="example-3">
+		  <button v-on:click="say('hi')">Say hi</button>
+		  <button v-on:click="say('what')">Say what</button>
+		</div>
+		<script>
+			new Vue({
+			  el: '#example-3',
+			  methods: {
+			    say: function (message) {
+			      alert(message)
+			    }
+			  }
+			})
+		</script>
+	</body>
+</html>
