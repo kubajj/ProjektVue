@@ -1,20 +1,25 @@
 function Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+function znamenko() {
+	var arr = [1, -1];
+	var rnd = Random(0,1);
+	return arr[rnd];
+}
+
 function rovnice() {
-	return document.getElementById('obs').innerHTML = genRovnice();
+	document.getElementById('obs').innerHTML = genRandomRovnice();
 }
 function oObrazek() {
-	return document.getElementById('obrazek').src = '';
+	document.getElementById('obrazek').src = '';
 }
 function obrazek(pic) {
-	console.log(pic);
-	return document.getElementById('obrazek').src = pic;
+	document.getElementById('obrazek').src = pic;
 }
 function funkce() {
-	return document.getElementById('obs').innerHTML = 'Je na obrázku funkce?';
+	document.getElementById('obs').innerHTML = 'Je na obrázku funkce?';
 }
-function genRovnice() {
+function genRandomRovnice() {
 	var cubic = Random(0, 99);
 	var sqr = Random(0,99);
 	var lin = Random(0, 99);
@@ -51,6 +56,28 @@ function genRovnice() {
 	var abs = Random(0,99);
 	return cubic + " + " + sqr + " + " + lin + " + " + abs + " = 0<br>x = ?";
 }
+function genKvadratickaRovnice() {
+	var x1 = Random(0, 99) * znamenko();
+	var x2 = Random(0, 99) * znamenko();
+	var a = Random(1, 5) * znamenko();
+	var b = - a * (x1 + x2);
+	if (b > 0) {
+		b = '+' + b + 'x';
+	} else if (b == 0) {
+		b = '';
+	} else {
+		b = b + 'x';
+	}	
+	var c = a * (x1 * x2);
+	if (c > 0) {
+		c = '+' + c;
+	}
+	var string = '$' + a + 'x^2' + b + c + '= 0$';
+	console.log(string);
+	document.getElementById('obs').innerHTML = string;
+}
+
+
 function Aritmetika() {
 	var pocet = Random(2, 8);
 	var pole = [];

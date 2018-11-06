@@ -11,13 +11,25 @@
   		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 	</head>
 
-	<body>		
+	<body>
 		<!-- navigace -->
 		<div id="nav">
-			<nabidka></nabidka>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<logo></logo>
+					<nabidka></nabidka>
+					<div v-if='loggedin'>
+						<stredt></stredt>
+					</div>
+					<div v-else>
+						<stredf></stredf>
+					</div>
+					<vpravo></vpravo>
+				</div>
+			</nav>
 			<script src="navue.js"></script>
 		</div>
-		<!-- navigace -->	
+		<!-- navigace -->
 		<div class="container">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 				<div class="jumbotron">						

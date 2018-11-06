@@ -5,7 +5,7 @@ Vue.component('logo', {
 	    			</div>`
 })
 
-Vue.component('rozbal', {
+Vue.component('nabidka', {
 	template: `<div  class="nav navbar-nav">
 					<div class="btn-group">
 					  	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Hlavní nabídka">
@@ -62,25 +62,9 @@ Vue.component('stredf', {
 				    <li><a href="login.html"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
 				</ul>`
 })
-
-Vue.component('nabidka', {
-	template: `<nav class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<logo></logo>
-					<rozbal></rozbal>
-					<div v-if='loggedin'>
-						<stredt></stredt>
-					</div>
-					<div v-else>
-						<stredf></stredf>
-					</div>
-					<vpravo></vpravo>
-				</div>
-			</nav>`
-})
 var vm = new Vue({
   el: '#nav',
   data: {
-  	loggedin: false,
+  	loggedin: true,
   }
 })
