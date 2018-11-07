@@ -1,3 +1,6 @@
+/*LaTeX http://www.codecogs.com/latex/integration/htmlequations.php*/
+
+
 function Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -8,7 +11,8 @@ function znamenko() {
 }
 
 function rovnice() {
-	document.getElementById('obs').innerHTML = genRandomRovnice();
+	document.getElementById('obstex').innerHTML = genRandomRovnice();
+	document.getElementById('obs').innerHTML = '';
 }
 function oObrazek() {
 	document.getElementById('obrazek').src = '';
@@ -18,6 +22,8 @@ function obrazek(pic) {
 }
 function funkce() {
 	document.getElementById('obs').innerHTML = 'Je na obrázku funkce?';
+	document.getElementById('obstex').innerHTML = '';
+
 }
 function genRandomRovnice() {
 	var cubic = Random(0, 99);
@@ -28,18 +34,18 @@ function genRandomRovnice() {
 	}
 	if (cubic != 0) {
 		if (cubic == 1) {
-			cubic = "x<sup>3</sup>";
+			cubic = "x^3";
 		} else {
-			cubic += "x<sup>3</sup>";
+			cubic += "x^3";
 		}
 	} else {
 		cubic = "";
 	}
 	if (sqr != 0) {
 		if (sqr == 1) {
-			sqr = "x<sup>2</sup>";
+			sqr = "x^2";
 		} else {
-			sqr += "x<sup>2</sup>";
+			sqr += "x^2";
 		}
 	} else {
 		sqr = "";
@@ -54,7 +60,9 @@ function genRandomRovnice() {
 		lin = "";
 	}
 	var abs = Random(0,99);
-	return cubic + " + " + sqr + " + " + lin + " + " + abs + " = 0<br>x = ?";
+	var string = '$' + cubic + " + " +  sqr + " + " + lin + " + " + abs + " = 0$";
+	document.getElementById('obrazek').src = "http://latex.codecogs.com/gif.latex?1+sin(x)";
+	return string;
 }
 function genKvadratickaRovnice() {
 	var x1 = Random(0, 99) * znamenko();

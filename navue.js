@@ -27,7 +27,7 @@ Vue.component('vpravo', {
 	template:`	<div class="search">
 					<form class="navbar-form navbar-right" action="#">
 				      	<div class="input-group">
-						    <input class="form-control" id="myInput" type="text" placeholder="Search.." data-toggle="tooltip" title="Vyhledávání">
+						    <input class="form-control" id="myInput" type="text" placeholder="Vyhledávání..." data-toggle="tooltip" title="Vyhledávání">
 						    <script>
 								$(document).ready(function(){
 								  $("#myInput").on("keyup", function() {
@@ -65,6 +65,6 @@ Vue.component('stredf', {
 var vm = new Vue({
   el: '#nav',
   data: {
-  	loggedin: true,
+  	loggedin: false,
   }
 })

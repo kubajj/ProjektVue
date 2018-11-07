@@ -32,6 +32,9 @@ footer img {
 	height:30px;
 	border-radius: 50%;
 }
+footer a {
+	color: white;
+}
 .logo {
 	margin-top: 5px;
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<title>Computatis</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+  		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+
+	<body>	
+		<!-- navigace -->
+		<div id="nav">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<logo></logo>
+					<nabidka></nabidka>
+					<div v-if='loggedin'>
+						<stredt></stredt>
+					</div>
+					<div v-else>
+						<stredf></stredf>
+					</div>
+					<vpravo></vpravo>
+				</div>
+			</nav>
+			<script src="navue.js"></script>
+		</div>
+		<!-- navigace -->
+		<h1 class="nadpis">Vítejte, pane Jelínku</h1>
+		<div class="container">
+			<div class="jumbotron">	
+				<div id="todo-list-example" class="obsah">
+				  <form v-on:submit.prevent="addNewTodo">
+				    <label for="new-todo">Přidat úkol</label>
+				    <input
+				      v-model="newTodoText"
+				      id="new-todo"
+				      placeholder="Př. Nakrmit kočku"
+				    >
+				    <button>Přidat</button>
+				  </form>
+				  <ul>
+				    <li
+				      is="todo-item"
+				      v-for="(todo, index) in todos"
+				      v-bind:key="todo.id"
+				      v-bind:title="todo.title"
+				      v-on:remove="todos.splice(index, 1)"
+				    ></li>
+				  </ul>
+				</div>
+				<script>
+					Vue.component('todo-item', {
+					  template: '\
+					    <li>\
+					      {{ title }}\
+					      <button v-on:click="$emit(\'remove\')">X</button>\
+					    </li>\
+					  ',
+					  props: ['title']
+					})
+
+					new Vue({
+					  el: '#todo-list-example',
+					  data: {
+					    newTodoText: '',
+					    todos: [
+					      {
+					        id: 1,
+					        title: 'Zeptat se na LaTeX',
+					      },
+					      {
+					        id: 2,
+					        title: 'Vyřešit Admina',
+					      },
+					      {
+					        id: 3,
+					        title: 'Zeptat se, jak řešit ty formuláře, atd.'
+					      }
+					    ],
+					    nextTodoId: 4
+					  },
+					  methods: {
+					    addNewTodo: function () {
+					      this.todos.push({
+					        id: this.nextTodoId++,
+					        title: this.newTodoText			        
+					      })
+					      this.newTodoText = ''
+					    }
+					  }
+					})
+				</script>
+			</div>			
+		</div>		
+		<div id="vuefooter">
+	  		<vuefooter></vuefooter>
+	  		<script src="vuefooter.js"></script>
+	  	</div>
+	</body>
+</html>    
