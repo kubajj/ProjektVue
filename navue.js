@@ -18,7 +18,7 @@ Vue.component('nabidka', {
 				      		<li><a href="teorie.html">Teorie</a></li>
 				      		<li><a href="procvicovani.html">Procvičování</a></li>
 				      		<li><a href="statistiky.html">Statistiky</a></li>
-						   </ul>
+						</ul>
 					</div>
 				</div>`
 })
@@ -27,17 +27,7 @@ Vue.component('vpravo', {
 	template:`	<div class="search">
 					<form class="navbar-form navbar-right" action="#">
 				      	<div class="input-group">
-						    <input class="form-control" id="myInput" type="text" placeholder="Vyhledávání..." data-toggle="tooltip" title="Vyhledávání">
-						    <script>
-								$(document).ready(function(){
-								  $("#myInput").on("keyup", function() {
-								    var value = $(this).val().toLowerCase();
-								    $("#myDIV *").filter(function() {
-								      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-								    });
-								  });
-								});
-							</script>
+						    <input class="form-control" id="myInput" type="text" placeholder="Vyhledávání..." data-toggle="tooltip" title="Vyhledávání">						    
 						    <div class="input-group-btn">
 						      <button class="btn btn-default" type="submit">
 						        <i class="glyphicon glyphicon-search"></i>
@@ -65,6 +55,6 @@ Vue.component('stredf', {
 var vm = new Vue({
   el: '#nav',
   data: {
-  	loggedin: false,
+  	loggedin: true,
   }
 })
